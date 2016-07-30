@@ -1,4 +1,4 @@
-package lt.gt.sudoku.web;
+package lt.gt.sudoku.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
