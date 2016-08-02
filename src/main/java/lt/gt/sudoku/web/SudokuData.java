@@ -27,8 +27,21 @@ public class SudokuData {
 	@PostConstruct
 	public void initData() {
 		Board b = new Board();
+		b.setId(nextBoardId++);
 		b.setB(0, 0, 7);
 		boards.add(b);
+		Board b2= BoardLoader.loadBoard( 
+				9,0,6,0,0,2,0,0,0,
+				7,0,4,0,0,1,0,0,5,
+				1,3,2,0,0,7,0,0,8,
+				0,9,0,0,4,0,0,0,2,
+				0,0,1,0,0,0,6,0,0,
+				6,0,0,0,3,0,0,7,0,
+				2,0,0,7,0,0,9,8,4,
+				8,0,0,5,0,0,7,0,6,
+				0,0,0,6,0,0,1,0,3 );
+		b2.setId( nextBoardId++);
+		boards.add( b2 );
 	}
 
 	public List<Board> getBoards() {

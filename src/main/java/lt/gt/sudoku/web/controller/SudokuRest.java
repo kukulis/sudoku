@@ -61,7 +61,7 @@ public class SudokuRest implements ApplicationContextAware {
 	 */
 	public SudokuData getSudokuData() {
 		SudokuData sudokuData = applicationContext.getBean( SudokuData.class );
-		System.out.println( "SudokuRest.getSudokuData sudokuData.hash="+sudokuData.hashCode() );
+//		System.out.println( "SudokuRest.getSudokuData sudokuData.hash="+sudokuData.hashCode() );
 		return sudokuData;
 	}
 }

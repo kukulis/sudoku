@@ -1,3 +1,6 @@
+<%-- 
+***** This is the start page ****** 
+--%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -15,16 +18,19 @@
 	var="bootstrapJs" />
 <spring:url value="/resources/core/js/sudoku.js" var="sudokuJs" />
 
+<c:url var="root" value="/" scope="request" />
+
 <script src="${jqueryJs}"></script>
 <script src="${bootstrapJs}"></script>
 <script src="${sudokuJs}"></script>
 <script>
 jQuery(document).ready(function($) {
-	fillBoardsList();
+	fillBoardsList("${root}");
 });
 </script>
 </head>
 <body>
 	Boards list:
 	<div id="boardsList"></div>
+	<p><button onclick="createNew(${root})">create new</button></p>
 </body>

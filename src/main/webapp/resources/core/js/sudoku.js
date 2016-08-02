@@ -30,7 +30,53 @@ var fillBoardsListInner=function(data) {
 	$("#boardsList").html(table);
 }
 
-var fillBoardsList=function () {
-	var data=[ {id:1},  {id:2}, {id:3} ];
-	fillBoardsListInner ( data );
+var fillBoardsList=function (root) {
+	
+	$.ajax({
+		type : "GET",
+//		contentType : "application/json",
+		url : root+"rest/list",
+		// data : JSON.stringify(search),
+		// dataType : 'json',
+		timeout : 100000,
+		success : function(data) {
+			console.log("SUCCESS: ", data);
+			//display(data);
+			//enableSearchButton(true);
+			fillBoardsListInner ( data );
+		},
+		error : function(e) {
+			console.log("ERROR: ", e);
+			//display(e);
+			//enableSearchButton(true);
+		},
+		done : function(e) {
+			console.log("DONE");
+			//enableSearchButton(true);
+		}
+	});
+}
+
+var createNew=function(root) {
+	$.ajax({
+		type : "PUT",
+//		contentType : "application/json",
+		url : root+"rest/new",
+		// data : JSON.stringify(search),
+		// dataType : 'json',
+		timeout : 100000,
+		success : function(data) {
+			console.log("SUCCESS: ", data);
+			fillBoardsList(root);
+		},
+		error : function(e) {
+			console.log("ERROR: ", e);
+			//display(e);
+			//enableSearchButton(true);
+		},
+		done : function(e) {
+			console.log("DONE");
+			//enableSearchButton(true);
+		}
+	});
 }

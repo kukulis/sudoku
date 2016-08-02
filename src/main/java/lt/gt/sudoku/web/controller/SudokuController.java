@@ -9,8 +9,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class SudokuController {
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String sudokuRoot(ModelMap model) {
+		return "index";
+	}
+	
+	
+	@RequestMapping(value = "/sudoku", method = RequestMethod.GET)
+	public String boardsList(ModelMap model) {
 		return "sudoku";
 	}
 	
